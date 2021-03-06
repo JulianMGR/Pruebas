@@ -110,18 +110,6 @@ body{
 	color: #fff;
 }
 
-.lista:hover{
-	background-color: white;
-
-}
-.lista:hover p{
-	color: #00BAFF;
-}
-.lista:hover ~ .submenu{
-	display: block;
-}
-
-
 .submenu{
 	display: none;
 }
@@ -157,7 +145,7 @@ body{
 /*para javascript*/
 .chachi{
 
-	height: 0px !important;
+	height: calc(100vh - 275px) !important;
 	overflow: hidden;
 
 }
@@ -193,4 +181,14 @@ body{
 	background-color:  #252850 !important;
 	border-color: #fff;
 }
+
+.despliega .submenu{
+	display: block;
+}
+
+
+
+
+
+
 
