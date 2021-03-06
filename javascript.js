@@ -9,10 +9,24 @@ function toggle() {
   	parriba();
   }
     menu.classList.toggle('menu--open');
-
+    
 }
 
 trigger.addEventListener('click', toggle);
+
+// Submenus
+
+var lista=document.getElementsByClassName("lista");
+console.log(lista);
+
+lista[0].addEventListener("click", culo);
+lista[1].addEventListener("click", culo);
+
+function culo(){
+	this.classList.toggle("despliega");	
+}
+
+
 
 //MENU DESPLEGABLE INFERIOR
 
@@ -52,3 +66,4 @@ function noche(){
 		iconosNoche[i].classList.toggle("iconosNoche");
 	}
 }
+
