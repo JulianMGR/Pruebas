@@ -52,3 +52,8 @@ function noche(){
 		iconosNoche[i].classList.toggle("iconosNoche");
 	}
 }
+//barra URL
+
+window.onload = function(){
+	window.scrollTo(0, 1);
+}
