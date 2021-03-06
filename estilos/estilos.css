@@ -1,0 +1,196 @@
+*{
+
+	font-family: 'Montserrat', sans-serif;
+	box-sizing: border-box;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.6;
+	padding: 0;	
+	margin: 0;	
+	list-style-type: none;
+}
+body{
+		overflow: hidden;
+}
+
+/*--------header----*/
+#header{
+	background-color: #00BAFF;
+	width: 100vw;	
+	height: 50px;
+	display: flex;
+	justify-content: flex-end;
+
+}
+
+#logo{
+	align-self: center;
+	width: 80%;	
+}
+#logo p{
+	font-weight: 800;
+	font-size: 1.6em;
+	text-align: center;
+	color: #fff;
+
+}
+#menuHamburguesa{
+
+	width: 10%;
+
+}
+#menuHamburguesa i{
+	font-size: 32px;
+	color: 	#fff;
+
+}
+
+/*---------------main-------------------*/
+#main{
+	width: 100vw;
+	
+	height: calc(100vh - 100px);
+	overflow: scroll;
+	transition: all 0.3s;
+}
+ .colorin {
+    background: linear-gradient(45deg,#00baff,#fff,#00baff);
+    background-size: 600% 600%;
+    animation: fondo 15s ease infinite;
+}
+@keyframes fondo {
+    0%{background-position:100% 0%}
+    50%{background-position:0% 100%}
+    100%{background-position:100% 0%}
+}
+
+
+/*----------------------footer--------------*/
+#footer{
+	width: 100vw;	
+	height: 50px;		
+	overflow: hidden;
+	
+}
+
+.abajo{
+	display: flex;
+	justify-content: space-around;
+}
+
+.icono{
+	font-size: 32px;
+	color: #00BAFF;
+}
+
+.menu {
+  right: 0;
+  top: 50px;
+  width: 0;
+  overflow: hidden;
+  background-color: #89dfff;
+  transition: all .3s;
+  position: absolute;
+  height: calc(100vh - 100px);
+  text-align: center;
+  padding-top: 50px;
+
+}
+
+.menu--open {
+  width: 100%;
+}
+
+.menu li{
+	padding: 15px 0;
+}
+.menu li h3{
+	font-weight: 600;
+	font-size: 20px;
+	color: #fff;
+}
+
+.lista:hover{
+	background-color: white;
+
+}
+.lista:hover p{
+	color: #00BAFF;
+}
+.lista:hover ~ .submenu{
+	display: block;
+}
+
+
+.submenu{
+	display: none;
+}
+.submenu p{
+	
+	font-size: 16px;
+	color: #fff;
+}
+
+#flexicinta{
+	
+	padding-top: 25px;
+	display: flex;
+	flex-flow: wrap;
+
+}
+#flexicinta li{
+	flex: 20%;
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+#pichula{
+	height: 100vh;
+	border-top:2px solid  #89dfff;
+}
+
+
+
+
+
+
+/*para javascript*/
+.chachi{
+
+	height: 0px !important;
+	overflow: hidden;
+
+}
+.oculto{
+	display: none;
+}
+
+.noche{
+	background-color: #252850;
+}
+.iconosNoche{
+	color: #fff;
+}
+
+
+/*Modo noche*/
+.darkMode #header{
+	background-color:  #252850 !important;
+}
+.darkMode .menu{
+	background-color: #3B4080;
+	color: #fff
+}
+.darkMode #main{
+	background: linear-gradient(45deg,#252850,#06060D,#252850);
+	background-size: 600% 600%;
+    animation: fondo 15s ease infinite;
+}
+.darkMode #footer{
+	background-color:  #252850 !important;
+}
+.darkMode #pichula{
+	background-color:  #252850 !important;
+	border-color: #fff;
+}
+
