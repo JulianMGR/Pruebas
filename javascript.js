@@ -133,3 +133,29 @@ function OnInput() {
   this.scrollTop = this.scrollHeight;
 
 }
+
+
+//tu escribe que ya lo pongo yo
+
+var btnEnviar = document.getElementById("enviar");
+
+btnEnviar.addEventListener("click", enviaTexto);
+var textoIntr = document.getElementById("introducir");
+
+function enviaTexto(){
+	if (textoIntr.value!= '') {
+	cajaComent.innerHTML += '<div class="cajaComent"> \
+	<div class="coment">' + textoIntr.value + '</div> \
+	<div class="btnEliminar" name="eliminar"><i class="icono fas fa-ban"></i></div></div>'
+
+	//eliminar mensaje
+	textoIntr.value= '';
+	textoIntr.style.height = "auto";
+	}
+	
+	//añade comentario
+	
+
+	actualizaLista();
+	scrollAbajo();
+}
