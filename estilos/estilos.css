@@ -103,15 +103,13 @@ body{
 	background-color: #fff;
 	width: 95%;
 	margin: 15px auto;
-	padding: 15px;
-
-	
+	padding: 15px;	
 }
 .coment{
 	width: 90%;	
 	align-self: center;
 	padding-right: 15px;
-	overflow-x: hidden;
+	white-space: pre-wrap;
 }
 .btnEliminar{
 	width: 10%;
