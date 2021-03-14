@@ -104,12 +104,14 @@ body{
 	width: 95%;
 	margin: 15px auto;
 	padding: 15px;	
+	border-radius: 25px;
 }
 .coment{
 	width: 90%;	
 	align-self: center;
-	padding-right: 15px;
+	padding: 10px;
 	white-space: pre-wrap;
+	word-break: break-all;
 }
 .btnEliminar{
 	width: 10%;
