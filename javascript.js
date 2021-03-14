@@ -40,14 +40,10 @@ flechas.addEventListener("click", parriba);
 
 
 function parriba(){
-	
-
 	if (menu.classList.contains("menu--open")==true) {
-
   	toggle();
   }
   footer.classList.toggle("chachi");
-
 	for (var i = 0; i <2; i++) {
 		document.getElementsByClassName("flecha")[i].classList.toggle("oculto");
 	}
@@ -80,47 +76,7 @@ function abreCajaComent(){
 	scrollAbajo();
 }
 
-
-
-// añadir comentario mediante click en limon
-
-const limon = document.getElementById("cosa3");
-var cajaComent = document.getElementById("comentarios");
-
-limon.addEventListener("click", masComent);
-
-function masComent(){
-	//añade comentario
-	cajaComent.innerHTML += '<div class="cajaComent"> \
-	<div class="coment">Lorem ipsum, dolor, sit amet consectetur adipisicing elit.</div> \
-	<div class="btnEliminar" name="eliminar"><i class="icono fas fa-ban"></i></div></div>'
-
-	//eliminar mensaje	
-	actualizaLista();
-	scrollAbajo();
-	
-}
-
-function actualizaLista(){
-	var elimina = document.getElementsByClassName("btnEliminar");
-	for (var i = 0; i < elimina.length; i++) {
- 	elimina[i].addEventListener("click", eliminar);
-	}
-}
-
-function eliminar(){
-	this.parentNode.remove();
-	scrollAbajo();
-}
-
-function scrollAbajo(){
-	cajaComent.scrollTop = cajaComent.scrollHeight;
-
-}
-
-
-
-// textarea crea lineas segun texto introducido
+//  crea lineas segun texto introducido en textarea
 const tx = document.getElementsByTagName('textarea');
 for (let i = 0; i < tx.length; i++) {
   tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight));
@@ -134,28 +90,59 @@ function OnInput() {
 
 }
 
-
-//tu escribe que ya lo pongo yo
+//tu escribe y envia que ya lo pongo yo
 
 var btnEnviar = document.getElementById("enviar");
+var textoIntr = document.getElementById("introducir");
 
 btnEnviar.addEventListener("click", enviaTexto);
-var textoIntr = document.getElementById("introducir");
 
 function enviaTexto(){
 	if (textoIntr.value!= '') {
 	cajaComent.innerHTML += '<div class="cajaComent"> \
 	<div class="coment">' + textoIntr.value + '</div> \
-	<div class="btnEliminar" name="eliminar"><i class="icono fas fa-ban"></i></div></div>'
+	<div class="btnEliminar" name="eliminar"><i class="icono fas fa-ban"></i></div></div>';
 
-	//eliminar mensaje
+	//eliminar mensaje en textarea
 	textoIntr.value= '';
 	textoIntr.style.height = "auto";
 	}
-	
-	//añade comentario
-	
-
 	actualizaLista();
 	scrollAbajo();
+	setTimeout(respuesta, 2000);
 }
+
+//actualiza el numero de comentarios en "elimina" para su posterior eliminación
+function actualizaLista(){
+	var elimina = document.getElementsByClassName("btnEliminar");
+	for (var i = 0; i < elimina.length; i++) {
+ 	elimina[i].addEventListener("click", eliminar);
+	}
+}
+
+//elimina el mensaje seleccionado onClick
+function eliminar(){
+	this.parentNode.remove();
+	scrollAbajo();
+}
+
+//mantiene el scroll abajo aunque en pc no baja del todo
+function scrollAbajo(){
+	cajaComent.scrollTop = cajaComent.scrollHeight;
+}
+
+// añadir solo respuesta mediante click en limon
+
+const limon = document.getElementById("cosa3");
+var cajaComent = document.getElementById("comentarios");
+var respuestas = ["En mi opinión, sí", "Es cierto","Es decididamente así", "Probablemente", "Buen pronóstico", "Todo apunta a que sí", "Sin duda","Sí", "Sí - definitivamente", "Debes confiar en ello", "Respuesta vaga, vuelve a intentarlo", "Pregunta en otro momento", "Será mejor que no te lo diga ahora", "No puedo predecirlo ahora", "Concéntrate y vuelve a preguntar", "No cuentes con ello", "Mi respuesta es no", "Mis fuentes me dicen que no", "Las perspectivas no son buenas", "Muy dudoso"];
+
+limon.addEventListener("click", respuesta);
+ function respuesta(){
+ 	var numRandom = Math.floor(Math.random() * respuestas.length);
+ 	cajaComent.innerHTML += '<div class="cajaComent"> \
+	<div class="coment">' + respuestas[numRandom] + '</div> \
+	<div class="btnEliminar" name="eliminar"><i class="icono fas fa-ban"></i></div></div>';
+	actualizaLista();
+	scrollAbajo();
+ }
