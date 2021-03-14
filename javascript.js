@@ -1,6 +1,8 @@
 //MENU HAMBURGUESA
 const menu = document.querySelector('.menu');
-const trigger = document.getElementById("menuHamburguesa");
+const burguer = document.getElementById("menuHamburguesa");
+
+burguer.addEventListener('click', toggle);
 
 function toggle() {
   
@@ -12,12 +14,12 @@ function toggle() {
     
 }
 
-trigger.addEventListener('click', toggle);
+
 
 // Submenus
 
 var lista=document.getElementsByClassName("lista");
-console.log(lista);
+
 
 lista[0].addEventListener("click", culo);
 lista[1].addEventListener("click", culo);
@@ -66,4 +68,62 @@ function noche(){
 		iconosNoche[i].classList.toggle("iconosNoche");
 	}
 }
+//abrir caja de texto
+const bocadillo = document.getElementById("cosa2");
+const cajaComentar = document.getElementById("comentar");
 
+bocadillo.addEventListener("click", abreCajaComent);
+
+function abreCajaComent(){
+	cajaComentar.classList.toggle("comentar--open");
+}
+
+
+
+// añadir comentario mediante click en limon
+
+const limon = document.getElementById("cosa3");
+const cajaComent = document.getElementById("comentarios");
+
+limon.addEventListener("click", masComent);
+
+function masComent(){
+	//añade comentario
+	cajaComent.innerHTML += '<div class="cajaComent"> \
+	<div class="coment">Lorem ipsum, dolor, sit amet consectetur adipisicing elit.</div> \
+	<div class="btnEliminar" name="eliminar"><i class="icono fas fa-ban"></i></div></div>'
+
+	//eliminar mensaje	
+	actualizaLista();
+	
+}
+
+function actualizaLista(){
+	var elimina = document.getElementsByClassName("btnEliminar");
+	for (var i = 0; i < elimina.length; i++) {
+ 	elimina[i].addEventListener("click", eliminar);
+	}
+}
+
+function eliminar(){
+	this.parentNode.remove();
+}
+
+
+
+
+
+
+// textarea crea lineas segun texto introducido
+const tx = document.getElementsByTagName('textarea');
+for (let i = 0; i < tx.length; i++) {
+  tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight));
+  tx[i].addEventListener("input", OnInput, false);
+}
+
+function OnInput() {
+  this.style.height = 'auto';
+  this.style.height = (this.scrollHeight) + 'px';
+  this.scrollTop = this.scrollHeight;
+
+}
