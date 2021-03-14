@@ -76,6 +76,8 @@ bocadillo.addEventListener("click", abreCajaComent);
 
 function abreCajaComent(){
 	cajaComentar.classList.toggle("comentar--open");
+	cajaComent.classList.toggle("coment--open");
+	scrollAbajo();
 }
 
 
@@ -83,7 +85,7 @@ function abreCajaComent(){
 // añadir comentario mediante click en limon
 
 const limon = document.getElementById("cosa3");
-const cajaComent = document.getElementById("comentarios");
+var cajaComent = document.getElementById("comentarios");
 
 limon.addEventListener("click", masComent);
 
@@ -95,6 +97,7 @@ function masComent(){
 
 	//eliminar mensaje	
 	actualizaLista();
+	scrollAbajo();
 	
 }
 
@@ -107,10 +110,13 @@ function actualizaLista(){
 
 function eliminar(){
 	this.parentNode.remove();
+	scrollAbajo();
 }
 
+function scrollAbajo(){
+	cajaComent.scrollTop = cajaComent.scrollHeight;
 
-
+}
 
 
 
