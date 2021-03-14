@@ -9,8 +9,9 @@
 	margin: 0;	
 	list-style-type: none;
 }
+
 body{
-		overflow: hidden;
+	overflow: hidden;
 }
 
 /*--------header----*/
@@ -20,7 +21,6 @@ body{
 	height: 50px;
 	display: flex;
 	justify-content: flex-end;
-
 }
 
 #logo{
@@ -35,72 +35,27 @@ body{
 
 }
 #menuHamburguesa{
-
 	width: 10%;
 
 }
 #menuHamburguesa i{
 	font-size: 32px;
 	color: 	#fff;
-
 }
-
-/*---------------main-------------------*/
-#main{
-	width: 100vw;
-	
-	height: calc(100vh - 100px);
-	overflow: scroll;
-	transition: all 0.3s;
-}
- .colorin {
-    background: linear-gradient(45deg,#00baff,#fff,#00baff);
-    background-size: 600% 600%;
-    animation: fondo 15s ease infinite;
-}
-@keyframes fondo {
-    0%{background-position:100% 0%}
-    50%{background-position:0% 100%}
-    100%{background-position:100% 0%}
-}
-
-
-/*----------------------footer--------------*/
-#footer{
-	width: 100vw;	
-	height: 50px;		
-	overflow: hidden;
-	
-}
-
-.abajo{
-	display: flex;
-	justify-content: space-around;
-}
-
-.icono{
-	font-size: 32px;
-	color: #00BAFF;
-}
-
 .menu {
-  right: 0;
-  top: 50px;
-  width: 0;
-  overflow: hidden;
-  background-color: #89dfff;
-  transition: all .3s;
-  position: absolute;
-  height: calc(100vh - 100px);
-  text-align: center;
-  padding-top: 50px;
+	right: 0;
+	top: 50px;
+	width: 0;
+	overflow: hidden;
+	background-color: #89dfff;
+	transition: width 0.3s;
+	position: absolute;
+	height: calc(100vh - 100px);
+	text-align: center;
+	padding-top: 50px;
+	z-index: 5;
 
 }
-
-.menu--open {
-  width: 100%;
-}
-
 .menu li{
 	padding: 15px 0;
 }
@@ -114,17 +69,76 @@ body{
 	display: none;
 }
 .submenu p{
-	
 	font-size: 16px;
 	color: #fff;
 }
 
-#flexicinta{
+/*---------------main-------------------*/
+#main{
+	width: 100vw;
+	height: calc(100vh - 100px);
+	min-height: calc(100vh - 10px - 256px);
+	overflow: scroll;
+	margin: 0;
+	transition: height 0.3s;
+	scrollbar-width: none; /* ocultar barra scroll firefox*/
+}
+
+/* ocultar barra scroll Chrome, Safari, Opera*/
+#main::-webkit-scrollbar {
+	display: none;
+}
+
+ .colorin {
+	background-color: #b1eaff;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40' width='80' height='40'%3E%3Cpath fill='%2300baff' fill-opacity='0.4' d='M0 40a19.96 19.96 0 0 1 5.9-14.11 20.17 20.17 0 0 1 19.44-5.2A20 20 0 0 1 20.2 40H0zM65.32.75A20.02 20.02 0 0 1 40.8 25.26 20.02 20.02 0 0 1 65.32.76zM.07 0h20.1l-.08.07A20.02 20.02 0 0 1 .75 5.25 20.08 20.08 0 0 1 .07 0zm1.94 40h2.53l4.26-4.24v-9.78A17.96 17.96 0 0 0 2 40zm5.38 0h9.8a17.98 17.98 0 0 0 6.67-16.42L7.4 40zm3.43-15.42v9.17l11.62-11.59c-3.97-.5-8.08.3-11.62 2.42zm32.86-.78A18 18 0 0 0 63.85 3.63L43.68 23.8zm7.2-19.17v9.15L62.43 2.22c-3.96-.5-8.05.3-11.57 2.4zm-3.49 2.72c-4.1 4.1-5.81 9.69-5.13 15.03l6.61-6.6V6.02c-.51.41-1 .85-1.48 1.33zM17.18 0H7.42L3.64 3.78A18 18 0 0 0 17.18 0zM2.08 0c-.01.8.04 1.58.14 2.37L4.59 0H2.07z'%3E%3C/path%3E%3C/svg%3E");
+	background-position-y: bottom;
+}
+
+
+.cajaComent{
+	display: flex;
+	background-color: #fff;
+	width: 95%;
+	margin: 15px auto;
+	padding: 15px;
+
 	
+}
+.coment{
+	width: 90%;	
+	align-self: center;
+	padding-right: 15px;
+	overflow-x: hidden;
+}
+.btnEliminar{
+	width: 10%;
+	text-align:center;
+	align-self: center;
+}
+
+
+/*----------------------footer--------------*/
+#footer{
+	width: 100vw;	
+	height: 50px;
+	position: relative;		
+}
+
+.abajo{
+	display: flex;
+	justify-content: space-around;
+}
+
+.icono{
+	font-size: 32px;
+	color: #00BAFF;
+}
+
+#flexicinta{
 	padding-top: 25px;
 	display: flex;
 	flex-flow: wrap;
-
 }
 #flexicinta li{
 	flex: 20%;
@@ -132,63 +146,95 @@ body{
 	margin-bottom: 25px;
 }
 
-#pichula{
-	height: 100vh;
+#cajon{
 	border-top:2px solid  #89dfff;
 }
 
+/* ____escribir comentario_*/
 
+#comentar{
+	width: 100vw;
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	min-height: 26px;
+	bottom: 50px;
+	transform: scale(0);
+	transition: transform .3s
+}
+.comentar--open{
+	transform: none !important;
+}
+#introducir{
+	width: 90%;
+	border-radius: 15px;
+	max-height: 256px;
+	resize: none;
+	padding: 5px 10px;
+    border: none;
+    outline: none;
+}
+#enviar{
+    width: 36px;
+    height: 36px;
+    align-self: flex-end;
+    border: none;
+    text-align: center;
+    color: #fff;
 
-
-
-
-/*para javascript*/
+}
+#enviar svg{
+	vertical-align: super;
+	margin:2px 0;
+}
+/*________________para javascript*/
 .chachi{
-
 	height: calc(100vh - 275px) !important;
 	overflow: hidden;
-
 }
 .oculto{
 	display: none;
 }
-
-.noche{
-	background-color: #252850;
+.despliega .submenu{
+	display: block;
 }
-.iconosNoche{
-	color: #fff;
+.menu--open {
+	width: 100%;
 }
-
-
-/*Modo noche*/
+.removed{
+	transition: all 0.3s;
+	height:0;
+	padding: 0;
+	overflow: hidden;
+}
+/*_______________Modo noche*/
 .darkMode #header{
-	background-color:  #252850 !important;
+	background-color: #252850 !important;
 }
 .darkMode .menu{
 	background-color: #3B4080;
 	color: #fff
 }
-.darkMode #main{
-	background: linear-gradient(45deg,#252850,#06060D,#252850);
-	background-size: 600% 600%;
-    animation: fondo 15s ease infinite;
+.darkMode .colorin{
+	background-color: #252850;
+	background-color: #3b4080;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40' width='80' height='40'%3E%3Cpath fill='%23252850' fill-opacity='0.4' d='M0 40a19.96 19.96 0 0 1 5.9-14.11 20.17 20.17 0 0 1 19.44-5.2A20 20 0 0 1 20.2 40H0zM65.32.75A20.02 20.02 0 0 1 40.8 25.26 20.02 20.02 0 0 1 65.32.76zM.07 0h20.1l-.08.07A20.02 20.02 0 0 1 .75 5.25 20.08 20.08 0 0 1 .07 0zm1.94 40h2.53l4.26-4.24v-9.78A17.96 17.96 0 0 0 2 40zm5.38 0h9.8a17.98 17.98 0 0 0 6.67-16.42L7.4 40zm3.43-15.42v9.17l11.62-11.59c-3.97-.5-8.08.3-11.62 2.42zm32.86-.78A18 18 0 0 0 63.85 3.63L43.68 23.8zm7.2-19.17v9.15L62.43 2.22c-3.96-.5-8.05.3-11.57 2.4zm-3.49 2.72c-4.1 4.1-5.81 9.69-5.13 15.03l6.61-6.6V6.02c-.51.41-1 .85-1.48 1.33zM17.18 0H7.42L3.64 3.78A18 18 0 0 0 17.18 0zM2.08 0c-.01.8.04 1.58.14 2.37L4.59 0H2.07z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.darkMode .cajaComent{
+	background-color: #252850;
+	color: #fff;
 }
 .darkMode #footer{
-	background-color:  #252850 !important;
+	background-color: #252850 !important;
 }
-.darkMode #pichula{
-	background-color:  #252850 !important;
+.darkMode #cajon{
+	background-color: #252850 !important;
 	border-color: #fff;
 }
-
-.despliega .submenu{
-	display: block;
+.darkMode .icono{
+	color: #fff;
 }
-
-
-
-
-
 
 
