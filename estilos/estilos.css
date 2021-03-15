@@ -97,13 +97,16 @@ body{
 #comentarios{
 	overflow-y: scroll;
 	height: 100%;
+	padding-top: 15px;
+
 }
 .cajaComent{
 	display: flex;
 	background-color: #fff;
-	width: 95%;
-	margin: 15px auto;
-	padding: 15px;	
+	width: 75%;
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right:15px;
 	border-radius: 25px;
 }
 .coment{
@@ -111,14 +114,19 @@ body{
 	align-self: center;
 	padding: 10px;
 	white-space: pre-wrap;
-	word-break: break-all;
+	word-break: break-word;
 }
+
 .btnEliminar{
 	width: 10%;
 	text-align:center;
 	align-self: center;
 }
 
+.respuesta{
+	margin-left: 15px;
+	margin-right: auto;
+}
 
 /*----------------------footer--------------*/
 #footer{

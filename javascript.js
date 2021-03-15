@@ -74,6 +74,7 @@ function abreCajaComent(){
 	cajaComentar.classList.toggle("comentar--open");
 	cajaComent.classList.toggle("coment--open");
 	scrollAbajo();
+	textoIntr.focus();
 }
 
 //  crea lineas segun texto introducido en textarea
@@ -101,15 +102,19 @@ function enviaTexto(){
 	if (textoIntr.value!= '') {
 	cajaComent.innerHTML += '<div class="cajaComent"> \
 	<div class="coment">' + textoIntr.value + '</div> \
-	<div class="btnEliminar" name="eliminar"><i class="icono fas fa-ban"></i></div></div>';
+	<div class="btnEliminar" name="eliminar"><i class="icono fas fa-times"></i></i></div></div>';
 
 	//eliminar mensaje en textarea
 	textoIntr.value= '';
 	textoIntr.style.height = "auto";
-	}
+	setTimeout(respuesta, 2000);
 	actualizaLista();
 	scrollAbajo();
-	setTimeout(respuesta, 2000);
+	}
+	textoIntr.focus();	
+	
+	
+	
 }
 
 //actualiza el numero de comentarios en "elimina" para su posterior eliminación
@@ -140,9 +145,9 @@ var respuestas = ["En mi opinión, sí", "Es cierto","Es decididamente así", "P
 limon.addEventListener("click", respuesta);
  function respuesta(){
  	var numRandom = Math.floor(Math.random() * respuestas.length);
- 	cajaComent.innerHTML += '<div class="cajaComent"> \
+ 	cajaComent.innerHTML += '<div class="cajaComent respuesta"> \
 	<div class="coment">' + respuestas[numRandom] + '</div> \
-	<div class="btnEliminar" name="eliminar"><i class="icono fas fa-ban"></i></div></div>';
+	<div class="btnEliminar" name="eliminar"><i class="icono fas fa-times"></i></div></div>';
 	actualizaLista();
 	scrollAbajo();
  }
