@@ -1,5 +1,4 @@
 *{
-
 	font-family: 'Montserrat', sans-serif;
 	box-sizing: border-box;
 	font-weight: 400;
@@ -32,7 +31,6 @@ body{
 	font-size: 1.6em;
 	text-align: center;
 	color: #fff;
-
 }
 #menuHamburguesa{
 	width: 10%;
@@ -54,7 +52,6 @@ body{
 	text-align: center;
 	padding-top: 50px;
 	z-index: 5;
-
 }
 .menu li{
 	padding: 15px 0;
