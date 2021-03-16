@@ -179,6 +179,8 @@ function comer(){
 			this.style.display="none";
 			this.firstChild.classList.replace('fa-cookie-bite', 'fa-cookie');
 		}
+		nomnom.load();
+		nomnom.play();
 	}
 }
 
@@ -187,6 +189,8 @@ function muestraGalletas() {
 		galletas[i].style.display="block";
 		galletas[i].firstChild.classList.replace('fa-cookie-bite', 'fa-cookie');
 		galletas[i].firstChild.classList.replace('fa-skull-crossbones', 'fa-cookie');
+		cookies.play();
+
 	}
 }
 
@@ -195,7 +199,11 @@ function setGalletaMala(){
 	console.log(numGalletaMala);
 }
 
-//skull-crossbones
+//muerte en galleta
+//audios galletas
+var grito = new Audio('sounds/grito.mp3');
+var cookies = new Audio('sounds/cookies.mp3');
+var nomnom = new Audio('sounds/nomnom.mp3');
 
 
 function galletaMala(){
@@ -205,12 +213,17 @@ function galletaMala(){
 
 }
 function mensajeMuerte(){
-	alert("Has morido");
+	nomnom.pause();
+	grito.play();
+	setTimeout(resetGalletas,3000);	
+
 }
 
 function resetGalletas(){
 	muestraGalletas();
 	setGalletaMala();
 	muerto =false;
+
+
 
 }
