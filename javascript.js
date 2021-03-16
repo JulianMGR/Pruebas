@@ -74,7 +74,9 @@ function abreCajaComent(){
 	cajaComentar.classList.toggle("comentar--open");
 	cajaComent.classList.toggle("coment--open");
 	scrollAbajo();
-	textoIntr.focus();
+	if (cajaComent.classList.contains("coment--open")){
+			textoIntr.focus();
+	}
 }
 
 //  crea lineas segun texto introducido en textarea
