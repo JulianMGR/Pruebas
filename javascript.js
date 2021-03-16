@@ -211,5 +211,6 @@ function mensajeMuerte(){
 function resetGalletas(){
 	muestraGalletas();
 	setGalletaMala();
+	muerto =false;
 
 }
