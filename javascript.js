@@ -204,6 +204,7 @@ function setGalletaMala(){
 var grito = new Audio('sounds/grito.mp3');
 var cookies = new Audio('sounds/cookies.mp3');
 var nomnom = new Audio('sounds/nomnom.mp3');
+nomnom.volume = 0.7;
 
 
 function galletaMala(){
@@ -223,7 +224,5 @@ function resetGalletas(){
 	muestraGalletas();
 	setGalletaMala();
 	muerto =false;
-
-
 
 }
