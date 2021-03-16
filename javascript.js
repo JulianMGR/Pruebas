@@ -6,7 +6,7 @@ burguer.addEventListener('click', toggle);
 
 function toggle() {
   
-  if (footer.classList.contains("chachi")==true) {
+  if (footer.classList.contains("desplegableInf")==true) {
 
   	parriba();
   }
@@ -34,7 +34,7 @@ function culo(){
 
 var flechas = document.getElementById("cosa1");
 var footer = document.getElementById("main");
-
+var x=0;
 
 flechas.addEventListener("click", parriba);
 
@@ -43,16 +43,21 @@ function parriba(){
 	if (menu.classList.contains("menu--open")==true) {
   	toggle();
   }
-  footer.classList.toggle("chachi");
+  footer.classList.toggle("desplegableInf");
 	for (var i = 0; i <2; i++) {
 		document.getElementsByClassName("flecha")[i].classList.toggle("oculto");
 	}
+
+	if (x%2 == false) {
+		resetGalletas();
+	}
+	x++;
 }
 
 
 //MODO NOCHE
 
-var noche = document.getElementById("cosa6").addEventListener("click", noche);
+var noche = document.getElementById("cosa4").addEventListener("click", noche);
 
 var iconosNoche = document.getElementsByClassName("icono");
 function noche(){
@@ -153,3 +158,58 @@ limon.addEventListener("click", respuesta);
 	actualizaLista();
 	scrollAbajo();
  }
+
+//galletas
+
+var galletas = document.getElementsByClassName("galleta");
+var muerto = false;
+
+for (var i = 0; i < galletas.length; i++) {
+galletas[i].addEventListener("click", comer);
+}
+
+function comer(){
+	if(muerto==false){
+		if (this.firstChild.classList.contains("fa-cookie")) {
+		this.firstChild.classList.replace('fa-cookie', 'fa-cookie-bite');
+		} else if (this == galletas[numGalletaMala]) {
+			galletaMala()
+
+		}else{
+			this.style.display="none";
+			this.firstChild.classList.replace('fa-cookie-bite', 'fa-cookie');
+		}
+	}
+}
+
+function muestraGalletas() {	
+		for (var i = 0; i < galletas.length; i++) {
+		galletas[i].style.display="block";
+		galletas[i].firstChild.classList.replace('fa-cookie-bite', 'fa-cookie');
+		galletas[i].firstChild.classList.replace('fa-skull-crossbones', 'fa-cookie');
+	}
+}
+
+function setGalletaMala(){
+	numGalletaMala = Math.floor(Math.random() * galletas.length);
+	console.log(numGalletaMala);
+}
+
+//skull-crossbones
+
+
+function galletaMala(){
+	galletas[numGalletaMala].firstChild.classList.replace('fa-cookie-bite', 'fa-skull-crossbones');
+	muerto = true;
+	setTimeout(mensajeMuerte, 500);
+
+}
+function mensajeMuerte(){
+	alert("Has morido");
+}
+
+function resetGalletas(){
+	muestraGalletas();
+	setGalletaMala();
+
+}
