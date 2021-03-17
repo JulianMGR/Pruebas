@@ -48,6 +48,7 @@ function culo(){
 
 var flechas = document.getElementById("cosa1");
 var footer = document.getElementById("main");
+var cajon = document.getElementById("cajon");
 var x=0;
 
 flechas.addEventListener("click", parriba);
@@ -58,16 +59,24 @@ function parriba(){
   	toggle();
   }
   footer.classList.toggle("desplegableInf");
+  
+
 	for (var i = 0; i <2; i++) {
 		document.getElementsByClassName("flecha")[i].classList.toggle("oculto");
 	}
 
 	if (x%2 == false) {
 		resetGalletas();
+		ocultaCajon();
+	} else {
+		setTimeout(ocultaCajon,500);	
 	}
 	x++;
 }
 
+function ocultaCajon(){
+	cajon.classList.toggle("oculto");
+}
 
 //MODO NOCHE
 
