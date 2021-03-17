@@ -34,15 +34,24 @@ function toggle() {
 
 var lista=document.getElementsByClassName("lista");
 
+for (var i = 0; i < lista.length; i++) {
+		lista[i].addEventListener("click", despliegaSubmenu);
+	}
 
-lista[0].addEventListener("click", culo);
-lista[1].addEventListener("click", culo);
-
-function culo(){
-	this.classList.toggle("despliega");	
+function despliegaSubmenu(){
+	if (this.classList.contains("despliega")==true) {
+		this.classList.toggle("despliega");	
+	} else {
+		escondeSubemnus();
+		this.classList.toggle("despliega");	
+	}
 }
 
-
+function escondeSubemnus(){
+		for (var i = 0; i < lista.length; i++) {
+		lista[i].classList.remove("despliega");
+	}
+}
 
 //MENU DESPLEGABLE INFERIOR
 
