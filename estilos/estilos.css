@@ -12,6 +12,7 @@
 body{
 	overflow: hidden;
 	height: calc(var(--vh, 1vh) * 100);
+	background-color: #b1eaff;
 
 }
 
@@ -46,13 +47,14 @@ body{
 	right: 0;
 	top: 50px;
 	width: 0;
-	overflow: hidden;
+	overflow-x: hidden;
 	background-color: #89dfff;
 	transition: width 0.3s;
 	position: absolute;
 	height: calc(100% - 100px);
 	text-align: center;
 	padding-top: 50px;
+	overflow-y: scroll;
 	z-index: 5;
 }
 .menu li{
@@ -65,11 +67,22 @@ body{
 }
 
 .submenu{
+	height: 0px;
+	overflow: hidden;
+	transition: all 0.3s;
+	transform: translateX(100px);
+	scrollbar-width: none; /* ocultar barra scroll firefox*/
+}
+
+/* ocultar barra scroll Chrome, Safari, Opera*/
+.submenu::-webkit-scrollbar {
 	display: none;
 }
+
 .submenu p{
 	font-size: 16px;
 	color: #fff;
+
 }
 
 /*---------------main-------------------*/
@@ -133,7 +146,8 @@ body{
 #footer{
 	width: 100%;	
 	height: 50px;
-	position: relative;		
+	position: relative;
+	background-color: #fff;
 }
 
 .abajo{
@@ -160,6 +174,8 @@ body{
 
 #cajon{
 	border-top:2px solid  #89dfff;
+	background-color: #fff;
+
 }
 
 /* ____escribir comentario_*/
@@ -209,9 +225,9 @@ body{
 .oculto{
 	display: none;
 }
-.
 .despliega .submenu{
-	display: block;
+	height: 150px;
+	transform: none;
 }
 .menu--open {
 	width: 100%;
@@ -226,6 +242,9 @@ body{
 	overflow: hidden;
 }
 /*_______________Modo noche*/
+.darkMode{
+	background-color: #3b4080 !important;
+}
 .darkMode #header{
 	background-color: #252850 !important;
 }
