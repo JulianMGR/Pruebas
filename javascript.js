@@ -75,7 +75,7 @@ function parriba(){
 	}
 
 	if (x%2 == false) {
-		resetGalletas();
+		allReset();
 		ocultaCajon();
 	} else {
 		setTimeout(ocultaCajon,500);	
@@ -194,7 +194,10 @@ limon.addEventListener("click", respuesta);
 //galletas
 
 var galletas = document.getElementsByClassName("galleta");
+var muerte = document.getElementById("muerte");
 var muerto = false;
+var positionScore = document.getElementById("numScore");
+var score =0;
 
 for (var i = 0; i < galletas.length; i++) {
 galletas[i].addEventListener("click", comer);
@@ -210,6 +213,7 @@ function comer(){
 		}else{
 			this.style.display="none";
 			this.firstChild.classList.replace('fa-cookie-bite', 'fa-cookie');
+			score++;
 		}
 		nomnom.load();
 		nomnom.play();
@@ -238,25 +242,38 @@ var cookies = new Audio('sounds/cookies.mp3');
 var nomnom = new Audio('sounds/nomnom.mp3');
 nomnom.volume = 0.7;
 
-
 function galletaMala(){
 	galletas[numGalletaMala].firstChild.classList.replace('fa-cookie-bite', 'fa-skull-crossbones');
 	muerto = true;
 	setTimeout(mensajeMuerte, 500);
-
 }
 function mensajeMuerte(){
 	nomnom.pause();
 	grito.play();
-
-	// setTimeout(resetGalletas,3000);	
-
+	muestraMuerte();	
 }
 
-function resetGalletas(){
+function muestraMuerte(){
+	muerte.classList.toggle("muerte--open");
+	positionScore.innerHTML=score;
+}
+
+var reset = document.getElementById("reset");
+reset.addEventListener("click", galletasReset);
+
+function galletasReset(){
+	muestraMuerte();
+	setTimeout(allReset, 300);
+}
+
+function allReset(){
 	muestraGalletas();
 	setGalletaMala();
+	resetScore();
 	muerto =false;
+}
 
+function resetScore(){
+	score = 0;
 }
 
