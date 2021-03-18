@@ -267,6 +267,7 @@ function galletasReset(){
 }
 
 function allReset(){
+	grito.pause();
 	muestraGalletas();
 	setGalletaMala();
 	resetScore();
