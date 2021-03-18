@@ -318,8 +318,8 @@ body{
 	color: #fff;
 }
 
-#numScore p{
-	font-size: 50px;
+#numScore{
+	font-size: 50px !important;
 	margin-top: -15px;
 }
 
