@@ -276,54 +276,65 @@ body{
 }
 
 
-/*galletas*/
+/*--------------------galletas*/
 
 #muerte{
 	position: absolute;
 	display: flex;
+	flex-flow: column;
 	justify-content: center;
-	top: 0;
+	transform: scale(0);
 	z-index: 6;
 	height: calc(var(--vh, 1vh) * 100);
+	top:0;
 	width: 100%;
 	background-color: rgba(0,0,0,0.8);
+	transition: all 0.3s;
+}
+.muerte--open{
+	transform: none !important;
+
 }
 #mensajeMuerte{
-	margin-top: 75px;
-	height: 50%;
+	margin: 0px auto 15px;
 	width: 80%;
-	background-color: #000;
+	background-color: rgba(0,0,0,0.5);
 	text-align: center;		
 	border-radius: 50px;
-
+	border: 3px solid #fff;
 }
 
 #iconoMuerte{
 	color: #fff !important;
-	font-size: 120px;
-	height: 50%;
+	font-size: 100px;
 }
 #score{
-	height: 50%;
 	width: 80%;
-	background-color: ;
 	margin: 0 auto;
-	padding-top: 25px;
-
 }
 #score p{
 	font-size: 30px;
-	padding-bottom: 15px;
 	font-weight: 700;
 	color: #fff;
+}
+
+#numScore p{
+	font-size: 50px;
+	margin-top: -15px;
 }
 
 #reset{
 	width: 40%;
 	height: 50px;
 	border-radius: 25px;
-	background-color: #fff;
-
+	margin: 0 auto;
+	border: 3px solid #fff;
+	color: #fff;
+	text-align: center;
+	font-weight: 600;
+	padding-top: 5px;
+	font-size: 20px;
+	background-color: rgba(0,0,0,0.5);
 }
 
 /*  height: calc(var(--vh, 1vh) * 100);*/
