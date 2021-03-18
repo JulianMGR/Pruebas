@@ -28,7 +28,11 @@ function toggle() {
     
 }
 
-
+function checkMenu(){
+	if (menu.classList.contains("menu--open")==true) {
+  	toggle();
+  }
+}
 
 // Submenus
 
@@ -64,10 +68,8 @@ flechas.addEventListener("click", parriba);
 
 
 function parriba(){
-	if (menu.classList.contains("menu--open")==true) {
-  	toggle();
-  }
-  footer.classList.toggle("desplegableInf");
+	checkMenu();
+	footer.classList.toggle("desplegableInf");
   
 
 	for (var i = 0; i <2; i++) {
@@ -108,6 +110,7 @@ const cajaComentar = document.getElementById("comentar");
 bocadillo.addEventListener("click", abreCajaComent);
 
 function abreCajaComent(){
+	checkMenu();
 	cajaComentar.classList.toggle("comentar--open");
 	cajaComent.classList.toggle("coment--open");
 	scrollAbajo();
@@ -183,6 +186,7 @@ var respuestas = ["En mi opinión, sí", "Es cierto","Es decididamente así", "P
 
 limon.addEventListener("click", respuesta);
  function respuesta(){
+ 	checkMenu();
  	var numRandom = Math.floor(Math.random() * respuestas.length);
  	cajaComent.innerHTML += '<div class="cajaComent respuesta"> \
 	<div class="coment">' + respuestas[numRandom] + '</div> \
